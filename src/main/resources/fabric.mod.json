@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "symmetrical-journey",
+  "id": "mod_id",
   "version": "${version}",
-  "name": "Symmetrical Journey",
+  "name": "Name Here",
   "description": "Mod Description",
   "authors": [
-    "mycf"
+    "Author"
   ],
   "contact": {
     "homepage": "https://example.com/",
     "issues": "https://example.com/",
-    "sources": "https://github.com/0xmycf/symmetrical-journey"
+    "sources": "https://example.com/"
   },
-  "license": "CC-BY-NC-SA 4.0",
-  "icon": "assets/symmetricaljourney/icon.png",
+  "license": "Licence",
+  "icon": "assets/mod_id/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       {
         "adapter": "kotlin",
-        "value": "org.mycf.symmetrical.journey.SymmetricalJourney"
+        "value": "com.username.modid.MainFile"
       }
     ]
   },
   "mixins": [
-    "symmetrical-journey.mixins.json"
+    "mod_id.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.7",
