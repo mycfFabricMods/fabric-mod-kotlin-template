@@ -16,20 +16,23 @@ object ModIdBlocks {
     private var BlockItemsRegistry = linkedMapOf<String, Item>()
     private var BlockRegistry = linkedMapOf<String, Block>()
 
+    val COOL_BLOCK: Block
+
     /**
      * Register blocks in here.
      * [net.minecraft.item.BlockItem.BlockItem] gets added automatically.
      * If you wish to change the settings of the BlockItem implement your own methods for it.
      */
     init {
-        addBlock("coolblock", Block(FabricBlockSettings.copy(Blocks.STONE)))
+        COOL_BLOCK = addBlock("coolblock", Block(FabricBlockSettings.copy(Blocks.STONE)))
     }
 
-    private fun addBlock(name: String, block: Block) {
+    private fun addBlock(name: String, block: Block): Block {
         val correctedName = name.lowercase().trim()
         BlockRegistry[correctedName] = block
         BlockItemsRegistry[correctedName + "_item"] =
             (BlockItem(block, Item.Settings().maxCount(64).group(ItemGroup.MISC)))
+        return block
     }
 
     public fun registerBlocks() {

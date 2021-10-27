@@ -12,16 +12,19 @@ import net.minecraft.util.registry.Registry
 object ModIdItems {
     private var ItemRegistry = linkedMapOf<String, Item>()
 
+    val COOL_ITEM: Item
+
     /**
      * Register [net.minecraft.item.Item.Item]s in here.
      */
     init {
-        addItem("coolitem", Item(FabricItemSettings().maxCount(64).group(ItemGroup.MISC)))
+        COOL_ITEM = addItem("coolitem", Item(FabricItemSettings().maxCount(64).group(ItemGroup.MISC)))
     }
 
-    private fun addItem(name: String, item: Item) {
+    private fun addItem(name: String, item: Item): Item {
         val correctedName = name.lowercase().trim()
         ItemRegistry[correctedName] = item
+        return item
     }
 
     public fun registerItems() {
