@@ -1,4 +1,4 @@
-@file:Suppress("SameParameterValue")
+@file:Suppress("SameParameterValue", "MemberVisibilityCanBePrivate")
 
 package com.username.modid.blocks
 

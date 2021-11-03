@@ -21,6 +21,12 @@
         "adapter": "kotlin",
         "value": "com.username.modid.MainFile"
       }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.username.modid.MainFileClient"
+      }
     ]
   },
   "mixins": [
