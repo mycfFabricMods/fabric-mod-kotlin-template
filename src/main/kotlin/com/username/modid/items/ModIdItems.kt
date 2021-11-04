@@ -3,7 +3,6 @@
 package com.username.modid.items
 
 import com.username.modid.MainFile
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
 import net.minecraft.util.Identifier
@@ -18,7 +17,7 @@ object ModIdItems {
      * Register [net.minecraft.item.Item.Item]s in here.
      */
     init {
-        COOL_ITEM = addItem("coolitem", Item(FabricItemSettings().maxCount(64).group(ItemGroup.MISC)))
+        COOL_ITEM = addItem("coolitem", Item(Item.Settings().maxCount(64).group(ItemGroup.MISC)))
     }
 
     private fun addItem(name: String, item: Item): Item {

@@ -32,8 +32,10 @@ dependencies {
     // FAPI
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
 
-    // Kotlin Language Adapter
-    modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
+    // Kotlin Language Adapter (not needed, but if you prefer use it)
+    //modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
+    // Own Language Adapter (Entry classes must be an object!)
+    implementation(kotlin("reflect"))
 }
 
 tasks {

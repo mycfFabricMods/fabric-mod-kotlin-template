@@ -15,16 +15,19 @@
   "license": "Licence",
   "icon": "assets/mod_id/icon.png",
   "environment": "*",
+  "languageAdapters": {
+    "custom": "com.username.modid.language_adapter.CustomAdapter"
+  },
   "entrypoints": {
     "main": [
       {
-        "adapter": "kotlin",
+        "adapter": "custom",
         "value": "com.username.modid.MainFile"
       }
     ],
     "client": [
       {
-        "adapter": "kotlin",
+        "adapter": "custom",
         "value": "com.username.modid.MainFileClient"
       }
     ]
@@ -35,7 +38,6 @@
   "depends": {
     "fabricloader": ">=0.11.7",
     "fabric": "*",
-    "fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31",
     "minecraft": "1.17.x",
     "java": ">=16"
   }

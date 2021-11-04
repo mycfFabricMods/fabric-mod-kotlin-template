@@ -3,7 +3,7 @@
 package com.username.modid.blocks
 
 import com.username.modid.MainFile
-import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Block
 import net.minecraft.block.Blocks
 import net.minecraft.item.BlockItem
@@ -24,7 +24,7 @@ object ModIdBlocks {
      * If you wish to change the settings of the BlockItem implement your own methods for it.
      */
     init {
-        COOL_BLOCK = addBlock("coolblock", Block(FabricBlockSettings.copy(Blocks.STONE)))
+        COOL_BLOCK = addBlock("coolblock", Block(AbstractBlock.Settings.copy(Blocks.STONE)))
     }
 
     private fun addBlock(name: String, block: Block): Block {
