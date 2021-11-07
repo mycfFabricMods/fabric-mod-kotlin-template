@@ -14,14 +14,15 @@ object ModIdItems {
     val COOL_ITEM: Item
 
     /**
-     * Register [net.minecraft.item.Item.Item]s in here.
+     * Register [net.minecraft.item.Item]'s in here.
      */
     init {
         COOL_ITEM = addItem("coolitem", Item(Item.Settings().maxCount(64).group(ItemGroup.MISC)))
     }
 
     private fun addItem(name: String, item: Item): Item {
-        val correctedName = name.lowercase().trim()
+        val correctedName = name.replace(" ", "").lowercase().trim()
+        println(correctedName)
         ItemRegistry[correctedName] = item
         return item
     }

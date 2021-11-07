@@ -20,7 +20,7 @@ object ModIdBlocks {
 
     /**
      * Register blocks in here.
-     * [net.minecraft.item.BlockItem.BlockItem] gets added automatically.
+     * [net.minecraft.item.BlockItem]'s gets added automatically (but can't be referenced atm).
      * If you wish to change the settings of the BlockItem implement your own methods for it.
      */
     init {
@@ -28,7 +28,7 @@ object ModIdBlocks {
     }
 
     private fun addBlock(name: String, block: Block): Block {
-        val correctedName = name.lowercase().trim()
+        val correctedName = name.replace(" ", "").lowercase().trim()
         BlockRegistry[correctedName] = block
         BlockItemsRegistry[correctedName + "_item"] =
             (BlockItem(block, Item.Settings().maxCount(64).group(ItemGroup.MISC)))
