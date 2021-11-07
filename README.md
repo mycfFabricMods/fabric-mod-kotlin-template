@@ -40,3 +40,15 @@ Be sure to also update the `build.gradle.kts` file as follows:
 -   // Own Language Adapter (Entry classes must be an object!)
 -   implementation(kotlin("reflect"))
 ````
+
+Be sure to add `fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31` as a dependency in `fabric.mod.json`:
+
+````diff
+  "depends": {
+    "fabricloader": ">=0.11.7",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
++   "fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31",
+  }
+````
