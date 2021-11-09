@@ -9,7 +9,7 @@ import net.fabricmc.loader.launch.common.FabricLauncherBase
 @Suppress("UNCHECKED_CAST")
 class CustomAdapter : LanguageAdapter {
     override fun <T : Any?> create(mod: ModContainer?, value: String?, type: Class<T>?): T {
-        val clazz = Class.forName(value?.trim(), true, FabricLauncherBase.getLauncher().targetClassLoader).kotlin.objectInstance
-        return clazz as T
+        val clazz = Class.forName(value?.trim(), true, FabricLauncherBase.getLauncher().targetClassLoader) as Class<Any>
+        return clazz.kotlin.objectInstance as T
     }
 }

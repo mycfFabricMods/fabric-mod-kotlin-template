@@ -16,12 +16,19 @@ val yarnMappings: String by project
 val loaderVersion: String by project
 val fabricVersion: String by project
 val fabricKotlinVersion: String by project
+val kotlinVersion: String by System.getProperties()
 
 version = modVersion
 group = mavenGroup
 
 minecraft {}
 repositories {}
+
+// dependency: kotlin(a,b) | String
+fun DependencyHandlerScope.includeModApi(dependency: Any) {
+    modApi(dependency)
+    include(dependency)
+}
 
 dependencies {
 
@@ -35,7 +42,14 @@ dependencies {
     // Kotlin Language Adapter (not needed, but if you prefer use it)
     //modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
     // Own Language Adapter (Entry classes must be an object!)
-    implementation(kotlin("reflect"))
+    // Kotlin libs
+    includeModApi(kotlin("stdlib", kotlinVersion))
+    includeModApi(kotlin("stdlib-jdk8", kotlinVersion))
+    includeModApi(kotlin("stdlib-jdk7", kotlinVersion))
+    includeModApi(kotlin("reflect", kotlinVersion))
+    includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2")
+    includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.5.2")
 }
 
 tasks {

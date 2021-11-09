@@ -29,16 +29,30 @@ If you don't want to use it, remove `laguage_adapter/*` and edit the `fabric.mod
       }
     ]
   }
+
 ```
 
 Be sure to also update the `build.gradle.kts` file as follows:
 
 ````diff
+- // dependency: kotlin(a,b) | String
+- fun DependencyHandlerScope.includeModApi(dependency: Any) {
+-   modApi(dependency)
+-   include(dependency)
+- }
+
 -   // Kotlin Language Adapter (not needed, but if you prefer use it)
 -   //modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 +   modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 -   // Own Language Adapter (Entry classes must be an object!)
--   implementation(kotlin("reflect"))
+-   includeModApi(kotlin("stdlib", kotlinVersion))
+-   includeModApi(kotlin("stdlib-jdk8", kotlinVersion))
+-   includeModApi(kotlin("stdlib-jdk7", kotlinVersion))
+-   includeModApi(kotlin("reflect", kotlinVersion))
+-   includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+-   includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2")
+-   includeModApi("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.5.2")
+
 ````
 
 Be sure to add `fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31` as a dependency in `fabric.mod.json`:
@@ -51,4 +65,5 @@ Be sure to add `fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31` as a dependency
     "java": ">=16"
 +   "fabric-language-kotlin": ">=1.6.5+kotlin.1.5.31",
   }
+
 ````
