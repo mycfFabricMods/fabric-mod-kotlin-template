@@ -22,12 +22,11 @@ object ModIdItems {
 
     private fun addItem(name: String, item: Item): Item {
         val correctedName = name.replace(" ", "").lowercase().trim()
-        println(correctedName)
         ItemRegistry[correctedName] = item
         return item
     }
 
-    public fun registerItems() {
+    fun registerItems() {
         this.ItemRegistry.forEach {
             Registry.register(Registry.ITEM, Identifier(MainFile.MOD_ID, it.key), it.value)
         }

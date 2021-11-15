@@ -35,16 +35,16 @@ object ModIdBlocks {
         return block
     }
 
-    public fun registerBlocks() {
+    fun registerBlocks() {
         this.BlockRegistry.forEach {
             Registry.register(Registry.BLOCK, Identifier(MainFile.MOD_ID, it.key), it.value)
         }
-        registerBlockItems()
-    }
+        fun registerBlockItems() {
+            this.BlockItemsRegistry.forEach {
+                Registry.register(Registry.ITEM, Identifier(MainFile.MOD_ID, it.key), it.value)
 
-    private fun registerBlockItems() {
-        this.BlockItemsRegistry.forEach {
-            Registry.register(Registry.ITEM, Identifier(MainFile.MOD_ID, it.key), it.value)
+            }
         }
+        registerBlockItems()
     }
 }
