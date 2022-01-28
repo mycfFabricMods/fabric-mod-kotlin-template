@@ -13,8 +13,8 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
 object ModIdBlocks {
-    private var BlockItemsRegistry = linkedMapOf<String, Item>()
-    private var BlockRegistry = linkedMapOf<String, Block>()
+    private val BlockItemsRegistry = linkedMapOf<String, Item>()
+    private val BlockRegistry = linkedMapOf<String, Block>()
 
     val COOL_BLOCK: Block
 
@@ -27,7 +27,7 @@ object ModIdBlocks {
         COOL_BLOCK = addBlock("coolblock", Block(AbstractBlock.Settings.copy(Blocks.STONE)))
     }
 
-    private fun addBlock(name: String, block: Block): Block {
+    private fun <B: Block> addBlock(name: String, block: B): B {
         val correctedName = name.replace(" ", "").lowercase().trim()
         BlockRegistry[correctedName] = block
         BlockItemsRegistry[correctedName + "_item"] =

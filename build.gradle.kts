@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "0.9-SNAPSHOT"
+    id("fabric-loom") version "0.10-SNAPSHOT"
     val kotlinVersion: String by System.getProperties()
     kotlin("jvm") version kotlinVersion
 }
@@ -71,8 +71,8 @@ tasks {
     }
     java {
         toolchain { languageVersion.set(JavaLanguageVersion.of(javaVersion)) }
-        sourceCompatibility = JavaVersion.VERSION_16
-        targetCompatibility = JavaVersion.VERSION_16
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
         withSourcesJar()
     }
 }
